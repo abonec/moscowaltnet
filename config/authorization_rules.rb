@@ -1,7 +1,7 @@
 authorization do
   role :admin do
     includes :user
-    has_permission_on :speeches, :to => [:index, :edit, :update, :destroy]
+    has_permission_on :speeches, :to => [:edit, :update, :destroy]
   end
 
   role :moderator do

@@ -10,8 +10,8 @@
 		<div>Voices: <%= speech.voices %></div>
 		<br />
 		<td><%= link_to 'Show', speech %></td>
-		<td><%= link_to 'Edit', edit_speech_path(speech) %></td>
-		<td><%= link_to 'Destroy', speech, :confirm => 'Are you sure?', :method => :delete %>
+		<td><%= link_to 'Edit', edit_speech_path(speech) if permitted_to? :edit, speech %></td>
+		<%= link_to 'Destroy', speech, :confirm => 'Are you sure?', :method => :delete if permitted_to? :destroy, speech %>
 		</p>
 		<% end %>
 	</article>
