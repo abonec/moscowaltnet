@@ -10,6 +10,6 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-
+#require 'active_support/cache'
 class Post < ActiveRecord::Base
 end

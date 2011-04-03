@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  filter_resource_access
+  
+  after_filter :expire, :only => [:create, :update]
   # GET /posts
   # GET /posts.xml
   def index
@@ -79,5 +82,10 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def expire
+    expire_page :controller => :home, :action => :news
   end
 end

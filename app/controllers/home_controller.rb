@@ -4,6 +4,7 @@ require 'json'
 class HomeController < ApplicationController 
   caches_action :lastevent, :expires_in => 24.hours, :layout => false
   caches_action :index, :expires_in => 24.hours, :layout => false
+  caches_action :news, :layout => false
   
   def index
     @event = lastevent()
@@ -25,6 +26,7 @@ class HomeController < ApplicationController
   end
   
   def news
+    @posts = Post.all
   end
 
   def speakers

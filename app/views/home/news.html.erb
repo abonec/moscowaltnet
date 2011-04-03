@@ -1,14 +1,15 @@
 <% title "Новости" %>
+<% @posts.each do |post| %>
+    <article>
 
-<article>
+      <header>
+        <h1><%= link_to post.title, post_path(post) %></h1>
+        <div class="postmeta">
+          <time datetime="<%= post.created_at.to_date %>"><%= post.created_at.to_s(:short) %></time>
+        </div>
+      </header>
+      <p><%= post.content %></p>
+      <p>&nbsp;</p>
 
-	<header>
-		<h1><%= link_to "Новости", :action => "news" %></h1>
-		<div class="postmeta">
-			<time datetime="2011-03-19">March 19th, 2011</time>
-		</div>
-	</header>
-	<p>Вот и начал запиливаться сайтик</p>
-	<p>&nbsp;</p>
-
-</article>
+    </article>
+<% end %>
