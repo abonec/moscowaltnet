@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :cal_url
   before_filter :set_current_user
 
+  def permission_denied
+    flash[:error] = "Sorry, you not allowed to access that page."
+    redirect_to root_url
+  end
+
   private
 
   def current_user

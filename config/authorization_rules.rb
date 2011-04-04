@@ -20,6 +20,7 @@ authorization do
     has_permission_on :speeches, :to => [:edit, :update] do
       if_attribute :user => is { user }
     end
+    has_permission_on :posts, :to => [:show]
 #    has_permission_on :posts, :to => :show
 #    more convenient way but required fix js code to show useful information
 #    has_permission_on :speeches, :to => [:vote_up, :vote_down] do
