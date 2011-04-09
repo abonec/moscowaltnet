@@ -1,10 +1,21 @@
 Moscowaltnet::Application.routes.draw do
+  namespace :puffer do
+    root :to => 'dashboard#index'
+    resource :session
+  end
+
+  namespace :admin do
+    resources :users
+    resources :posts
+  end
+
   resources :posts, :speeches do
     member do
       get 'vote_up'
       get 'vote_down'
     end
   end
+
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout

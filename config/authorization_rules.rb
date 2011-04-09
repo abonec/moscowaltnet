@@ -4,6 +4,8 @@ authorization do
     includes :news_maker
     includes :moderator
     has_permission_on :speeches, :to => [:edit, :update, :destroy]
+    has_permission_on :puffer, :to => :manage
+    has_permission_on :admin_users, :to => :manage
   end
 
   role :moderator do
@@ -12,6 +14,7 @@ authorization do
 
   role :news_maker do
     has_permission_on :posts, :to => :manage
+    has_permission_on :admin_posts, :to => :manage
   end
 
   role :user do

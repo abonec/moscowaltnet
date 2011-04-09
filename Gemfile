@@ -12,10 +12,16 @@ gem 'omniauth'
 gem 'declarative_authorization'
 gem 'typed_serialize'
 gem 'ruby_parser'
+gem 'puffer'
 
 group :development do
   gem 'mongrel'
   gem 'annotate-models'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'rspec-rails'
 end
 
 # Use unicorn as the web server
